@@ -15,7 +15,7 @@ See [CHANGELOG.md](CHANGELOG.md) for release history (back to the original
 ## Install
 
 ```sh
-omarchy plugin add <git-url> --enable
+omarchy plugin add https://github.com/maxnorm/omarchy-markets.git --enable
 ```
 
 The widget lands in the bar's center section. Move it with:

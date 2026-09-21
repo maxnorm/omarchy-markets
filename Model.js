@@ -121,7 +121,7 @@ function scrollSpeed(value, fallback) {
 // unknown symbol then still yields Yahoo's error JSON on its own line instead
 // of an empty line, which keeps the other symbols' lines aligned.
 function curlCommand(symbols, userAgent, range) {
-  var cmd = ["curl", "-sS", "--max-time", "10", "-A", String(userAgent || "omarchy-markets"), "-w", "\n"]
+  var cmd = ["curl", "-sS", "--max-time", "10", "--max-filesize", "5242880", "-A", String(userAgent || "omarchy-markets"), "-w", "\n"]
   for (var i = 0; i < symbols.length; i++) cmd.push(chartUrl(symbols[i], range))
   return cmd
 }
@@ -879,7 +879,7 @@ function coingeckoMarketsUrl(ids) {
 }
 
 function coingeckoCurlCommand(url, userAgent) {
-  return ["curl", "-sS", "--max-time", "15", "-A", String(userAgent || "omarchy-markets"),
+  return ["curl", "-sS", "--max-time", "15", "--max-filesize", "2097152", "-A", String(userAgent || "omarchy-markets"),
     "-H", "Accept: application/json", url]
 }
 
@@ -1096,7 +1096,7 @@ function binancePairsFromQuotes(quotes) {
 }
 
 function binanceCurlCommand(pairs, userAgent) {
-  var cmd = ["curl", "-sS", "--max-time", "10", "-A", String(userAgent || "omarchy-markets"), "-w", "\n"]
+  var cmd = ["curl", "-sS", "--max-time", "10", "--max-filesize", "2097152", "-A", String(userAgent || "omarchy-markets"), "-w", "\n"]
   for (var i = 0; i < pairs.length; i++) cmd.push(binanceTickerUrl(pairs[i].binance))
   return cmd
 }
@@ -1306,7 +1306,7 @@ function yahooSearchUrl(query) {
 }
 
 function yahooSearchCommand(query, userAgent) {
-  return ["curl", "-sS", "--max-time", "8", "-A", String(userAgent || "omarchy-markets"),
+  return ["curl", "-sS", "--max-time", "8", "--max-filesize", "1048576", "-A", String(userAgent || "omarchy-markets"),
     yahooSearchUrl(query)]
 }
 

@@ -1179,6 +1179,7 @@ Panel {
                 anchors.rightMargin: Style.space(24)
                 anchors.verticalCenter: parent.verticalCenter
                 text: row.valid ? row.modelData.name : (row.modelData.error || "No data")
+                textFormat: Text.PlainText
                 elide: Text.ElideRight
                 color: root.mutedForeground
                 font.family: root.fontFamily
@@ -1438,6 +1439,7 @@ Panel {
               anchors.rightMargin: Style.space(8)
               anchors.verticalCenter: parent.verticalCenter
               text: searchRow.modelData.name + (searchRow.modelData.exchange ? " \u00B7 " + searchRow.modelData.exchange : "")
+              textFormat: Text.PlainText
               elide: Text.ElideRight
               color: root.mutedForeground
               font.family: root.fontFamily
@@ -1525,6 +1527,7 @@ Panel {
               Text {
                 width: parent.width
                 text: detail.quote ? (detail.quote.name || Model.displaySymbol(detail.quote.symbol)) : ""
+                textFormat: Text.PlainText
                 elide: Text.ElideRight
                 color: root.barForeground
                 font.family: root.fontFamily

@@ -67,9 +67,9 @@ test("chartUrl: encodes the symbol into the v8 chart endpoint", () => {
 
 test("curlCommand: one curl, one URL per symbol, newline write-out, custom UA", () => {
   const cmd = Model.curlCommand(["AAPL", "BTC-USD"], "test-agent/1.0")
-  assert.deepEqual(cmd.slice(0, 8), ["curl", "-sS", "--max-time", "10", "-A", "test-agent/1.0", "-w", "\n"])
-  assert.deepEqual(cmd.slice(8), [Model.chartUrl("AAPL"), Model.chartUrl("BTC-USD")])
-  assert.deepEqual(Model.curlCommand(["AAPL"], "ua", "6mo").slice(8), [Model.chartUrl("AAPL", "6mo")])
+  assert.deepEqual(cmd.slice(0, 10), ["curl", "-sS", "--max-time", "10", "--max-filesize", "5242880", "-A", "test-agent/1.0", "-w", "\n"])
+  assert.deepEqual(cmd.slice(10), [Model.chartUrl("AAPL"), Model.chartUrl("BTC-USD")])
+  assert.deepEqual(Model.curlCommand(["AAPL"], "ua", "6mo").slice(10), [Model.chartUrl("AAPL", "6mo")])
 })
 
 test("quoteUrl / shellQuote", () => {
@@ -579,7 +579,7 @@ test("coingeckoSearchUrl / coingeckoMarketsUrl", () => {
 
 test("coingeckoCurlCommand: includes Accept header and custom UA", () => {
   const cmd = Model.coingeckoCurlCommand("https://example.com", "test/1.0")
-  assert.deepEqual(cmd, ["curl", "-sS", "--max-time", "15", "-A", "test/1.0", "-H", "Accept: application/json", "https://example.com"])
+  assert.deepEqual(cmd, ["curl", "-sS", "--max-time", "15", "--max-filesize", "2097152", "-A", "test/1.0", "-H", "Accept: application/json", "https://example.com"])
 })
 
 const COIN_SEARCH_RESPONSE = JSON.stringify({
@@ -783,8 +783,8 @@ test("binanceTradeUrlFor: maps Yahoo symbols to trade pages", () => {
 test("binanceCurlCommand: one URL per pair, newline write-out, custom UA", () => {
   const pairs = [{ yahoo: "BTC-USD", binance: "BTCUSDT" }, { yahoo: "ETH-USD", binance: "ETHUSDT" }]
   const cmd = Model.binanceCurlCommand(pairs, "test-agent/1.0")
-  assert.deepEqual(cmd.slice(0, 8), ["curl", "-sS", "--max-time", "10", "-A", "test-agent/1.0", "-w", "\n"])
-  assert.deepEqual(cmd.slice(8), [Model.binanceTickerUrl("BTCUSDT"), Model.binanceTickerUrl("ETHUSDT")])
+  assert.deepEqual(cmd.slice(0, 10), ["curl", "-sS", "--max-time", "10", "--max-filesize", "2097152", "-A", "test-agent/1.0", "-w", "\n"])
+  assert.deepEqual(cmd.slice(10), [Model.binanceTickerUrl("BTCUSDT"), Model.binanceTickerUrl("ETHUSDT")])
 })
 
 const BINANCE_BTC_LINE = JSON.stringify({

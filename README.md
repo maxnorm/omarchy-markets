@@ -9,6 +9,9 @@ Stocks and indices come from Yahoo Finance. Crypto prices use Binance spot
 with Yahoo as fallback; CoinGecko provides market cap, circulating supply,
 and 24h data. No API key required.
 
+See [CHANGELOG.md](CHANGELOG.md) for release history (back to the original
+0.0.1 release).
+
 ## Install
 
 ```sh

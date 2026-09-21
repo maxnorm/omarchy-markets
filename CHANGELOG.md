@@ -43,3 +43,8 @@ Chart, session awareness, and trust fixes.
 - Scrolling watchlist tape, detail panel with sparklines and range chart,
   Yahoo + Binance + CoinGecko sourcing, display-currency conversion,
   drag-to-reorder watchlist, Yahoo/CoinGecko symbol search.
+
+## 0.0.1
+
+- Original release: stock & crypto ticker with watchlist tape and detail
+  panel for the Omarchy bar (Yahoo Finance quotes, no API key).

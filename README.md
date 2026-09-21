@@ -105,6 +105,11 @@ omarchy restart shell                                       # QML is cached; res
 omarchy plugin remove mn.markets
 ```
 
+## Credits
+
+Based on the original by 5d0tal1gat0r (see LICENSE). Subsequent changes are
+listed in [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 MIT

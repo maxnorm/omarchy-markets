@@ -644,13 +644,6 @@ Panel {
       waitForEnd: true
       onStreamFinished: root.handleFetchOutput(text)
     }
-    stderr: StdioCollector {
-      waitForEnd: true
-      onStreamFinished: {
-        var message = String(text || "").split("\n")[0].replace(/^curl:\s*\(\d+\)\s*/, "").trim()
-        if (message !== "" && root.fetchError !== "" && root.validCount === 0) root.fetchError = message
-      }
-    }
   }
 
   Process {
@@ -1158,6 +1151,7 @@ Panel {
                 anchors.verticalCenter: parent.verticalCenter
                 width: Style.space(88)
                 text: Model.displaySymbol(row.modelData.symbol) + (row.valid && root.sessionIcon(row.modelData) !== "" ? " " + root.sessionIcon(row.modelData) : "")
+                textFormat: Text.PlainText
                 elide: Text.ElideRight
                 color: row.valid ? root.barForeground : root.mutedForeground
                 font.family: root.fontFamily
@@ -1426,6 +1420,7 @@ Panel {
               anchors.verticalCenter: parent.verticalCenter
               width: Style.space(64)
               text: Model.displaySymbol(searchRow.modelData.symbol)
+              textFormat: Text.PlainText
               elide: Text.ElideRight
               color: root.barForeground
               font.family: root.fontFamily
@@ -1539,6 +1534,7 @@ Panel {
                 text: detail.quote
                   ? [Model.displaySymbol(detail.quote.symbol), root.sourceLabel(detail.quote), root.currencyLabel(detail.quote), root.sessionBadge(detail.quote)].filter(function(p) { return !!p }).join(" \u00B7 ")
                   : ""
+                textFormat: Text.PlainText
                 elide: Text.ElideRight
                 color: root.mutedForeground
                 font.family: root.fontFamily
@@ -1789,6 +1785,7 @@ Panel {
                 readonly property var entry: stats.entries[Math.floor(index / 2)]
                 width: isLabel ? detail.statLabelWidth : detail.statValueWidth
                 text: entry ? (isLabel ? entry[0] : (entry[1] || "\u2014")) : ""
+                textFormat: Text.PlainText
                 elide: Text.ElideRight
                 color: isLabel ? root.mutedForeground : root.barForeground
                 font.family: root.fontFamily

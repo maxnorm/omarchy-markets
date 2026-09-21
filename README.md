@@ -1,6 +1,6 @@
 # Markets for Omarchy
 
-![Markets panel](preview.png)
+![Markets demo](screenrecording-2026-09-21_17-12-35_trimmed-1080p.gif)
 
 A stock and crypto ticker with a watchlist for the Omarchy Quattro bar.
 The tape scrolls your watchlist's symbols in the theme's green/red;

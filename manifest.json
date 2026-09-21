@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "mn.markets",
+  "name": "Markets",
+  "version": "0.3.0",
+  "author": "mn",
+  "license": "MIT",
+  "description": "Stock & crypto ticker with watchlist for the Omarchy bar (Yahoo Finance + Binance + CoinGecko, no API key).",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Markets",
+    "description": "Stock & crypto ticker with watchlist",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "center"
+  }
+}
